@@ -208,8 +208,7 @@ If the access point is not up immediately after the script runs, try waiting a
 little until all services are properly initialized. If waiting doesn't help,
 try rebooting the system. You can troubleshoot problems during install by
 taking a look at `setap.log` file created in the same directory where you ran
-the script. If the script fails because there is no `/etc/conf.d` directory,
-you can manually create it by running the command `mkdir /etc/conf.d`.
+the script.
 
 You can customize many of the network-related settings by editing the values
 near the top of the script file. This includes the subnet and IP address of the
