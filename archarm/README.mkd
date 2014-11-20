@@ -81,6 +81,17 @@ The above command returns "America/Chicago", which you can then use like so:
 
     timedatectl set-timezone America/Chicago
 
+## Upgrade Arch Linux, the kernel, and install wget
+
+For some DVB tuners, you may need a newer kernel. You can upgrade all the software and to the latest 
+version of the kernel by running:
+
+    pacman -Sy
+    pacman -Su
+    pacman -S linux-raspberrypi-latest linux-raspberrypi-latest-headers wget
+
+Answer Yes (press *y*) to all questions.
+
 ## Install Outernet software and TVHeadend
 
 To install the base software for Outernet Receiver, you can use our install
@@ -102,17 +113,6 @@ The script will do the following:
 
 You can troubleshoot problems during the install by looking at `install.log`
 file created in the same directory where you started the install script.
-
-## Upgrade the kernel
-
-For some DVB tuners, you may need a newer kernel. You can upgrade to the latest 
-version of the kernel by running:
-
-    pacman -Sy
-    pacman -Su
-    pacman -S linux-raspberrypi-latest linux-raspberrypi-latest-headers
-
-Answer Yes (press *y*) to all questions.
 
 ## Attach the DVB-S/S2 tuner
 
@@ -208,7 +208,8 @@ If the access point is not up immediately after the script runs, try waiting a
 little until all services are properly initialized. If waiting doesn't help,
 try rebooting the system. You can troubleshoot problems during install by
 taking a look at `setap.log` file created in the same directory where you ran
-the script.
+the script. If the script fails because there is no `/etc/conf.d` directory,
+you can manually create it by running the command `mkdir /etc/conf.d`.
 
 You can customize many of the network-related settings by editing the values
 near the top of the script file. This includes the subnet and IP address of the
